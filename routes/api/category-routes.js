@@ -1,18 +1,14 @@
 const router = require("express").Router();
-const { Category, Product } = require("../../models");
+const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const categoryData = await Category.findAll({
-      include: [
-        {
-          model: Product,
-          as: "products",
-        },
-      ],
-    });
+      include: [{model: Product}]
+        
+      });
     res.status(200).json(categoryData);
   } catch (err) {
     res.status(500).json(err);
@@ -21,20 +17,15 @@ router.get("/", async (req, res) => {
   // be sure to include its associated Products
 });
 
-router.get("/:id", async (req, res) => {
+router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
   try {
     const categoryData = await Category.findByPk(req.params.id, {
-      include: [
-        {
-          model: Product,
-          as: "products",
-        },
-      ],
+      include: [{model: Product}]
     });
     if (!categoryData) {
-      res.status(404).json({ message: "No location found with this id!" });
+      res.status(404).json({ message: 'No location found with this id!' });
       return;
     }
     res.status(200).json(categoryData);
@@ -43,7 +34,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
   // create a new category
   try {
     const categoryData = await Category.create(req.body);
@@ -53,7 +44,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const categoryData = await Category.update(req.body, {
       where: {
@@ -62,7 +53,7 @@ router.put("/:id", async (req, res) => {
     });
 
     if (!categoryData) {
-      res.status(404).json({ message: "No location found with this id!" });
+      res.status(404).json({ message: 'No location found with this id!' });
       return;
     }
 
@@ -72,7 +63,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const categoryData = await Category.destroy({
       where: {
