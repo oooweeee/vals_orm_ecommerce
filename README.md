@@ -33,11 +33,11 @@ Doing a get all:
 
 Deleting a product by id:
 
-![GET A PRODUCT BY  ID](<Screenshot 2024-06-10 225100.png>)
-
-Showing the product has been deleted by getting the individual product id that no longer exists:
-
 ![DELETE A PRODUCT](<Screenshot 2024-06-10 224954.png>)
+
+Showing the product has been deleted by getting the individual product id that no longer exists: 
+
+![GET A PRODUCT BY  ID](<Screenshot 2024-06-10 225100.png>)
 
 ## Credits
 id like to say thank you to everyon who has helped me in different phases of this project it was very challenging and if it were not for them im not sure i could do this in time with out their help specifically my class mate miles wildmore my tutor and the greates TA'S ever cody and mary.
